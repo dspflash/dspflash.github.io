@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'xplus';
+  src:  url('fonts/xplus.eot?8gerx8');
+  src:  url('fonts/xplus.eot?8gerx8#iefix') format('embedded-opentype'),
+    url('fonts/xplus.ttf?8gerx8') format('truetype'),
+    url('fonts/xplus.woff?8gerx8') format('woff'),
+    url('fonts/xplus.svg?8gerx8#xplus') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon-xplus:before {
+  font-family: 'xplus' !important;
+  content: "\e900";
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
