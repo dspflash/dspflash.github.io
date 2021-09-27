@@ -1,0 +1,382 @@
+﻿<div class="post">
+            <h1 class="postTitle">
+                
+<a class="postTitle2 vertical-middle" id="cb_post_title_url" href="https://www.cnblogs.com/apolloren/p/8012343.html">
+    <span>HTML页面跳转的5种方法</span>
+    
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div class="blogpost-body" id="cnblogs_post_body">
+    <p>下面列了五个例子来详细说明，这几个例子的主要功能是：在5秒后，自动跳转到同目录下的hello.html（根据自己需要自行修改）文件。<br><strong>1) html的实现</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<div>
+<div class="syntaxhighlighter  html" id="highlighter_332266">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="html plain">&lt;</code><code class="html keyword">head</code><code class="html plain">&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="html comments">&lt;!-- 以下方式只是刷新不跳转到其他页面 --&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="html plain">&lt;</code><code class="html keyword">meta</code>&nbsp;<code class="html plain">http-equiv="refresh" content="10"&gt;</code></div>
+<div class="line number4 index3 alt1"><code class="html comments">&lt;!-- 以下方式定时转到其他页面 --&gt;</code></div>
+<div class="line number5 index4 alt2"><code class="html plain">&lt;</code><code class="html keyword">meta</code>&nbsp;<code class="html plain">http-equiv="refresh" content="5;url=hello.html"&gt; </code></div>
+<div class="line number6 index5 alt1"><code class="html plain">&lt;/</code><code class="html keyword">head</code><code class="html plain">&gt;</code></div>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<p>优点：简单<br>缺点：Struts Tiles中无法使用</p>
+<p>&nbsp;</p>
+<p><strong>2) javascript的实现</strong></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<div>
+<div class="syntaxhighlighter  javascript" id="highlighter_723979">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="javascript plain">&lt;script language=</code><code class="javascript string">"javascript"</code>&nbsp;<code class="javascript plain">type=</code><code class="javascript string">"text/javascript"</code><code class="javascript plain">&gt; </code></div>
+<div class="line number2 index1 alt1"><code class="javascript comments">// 以下方式直接跳转</code></div>
+<div class="line number3 index2 alt2"><code class="javascript plain">window.location.href=</code><code class="javascript string">'hello.html'</code><code class="javascript plain">;</code></div>
+<div class="line number4 index3 alt1"><code class="javascript comments">// 以下方式定时跳转</code></div>
+<div class="line number5 index4 alt2"><code class="javascript plain">setTimeout(</code><code class="javascript string">"javascript:location.href='hello.html'"</code><code class="javascript plain">, 5000); </code></div>
+<div class="line number6 index5 alt1"><code class="javascript plain">&lt;/script&gt;</code></div>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<p>优点：灵活，可以结合更多的其他功能<br>缺点：受到不同浏览器的影响<br><strong>3) 结合了倒数的javascript实现（IE）</strong></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<div>
+<div class="syntaxhighlighter  html" id="highlighter_20196">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="html plain">&lt;</code><code class="html keyword">span</code>&nbsp;<code class="html plain">id="totalSecond"&gt;5&lt;/</code><code class="html keyword">span</code><code class="html plain">&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="html plain">&lt;</code><code class="html keyword">script</code>&nbsp;<code class="html plain">language="javascript" type="text/javascript"&gt; </code></div>
+<div class="line number3 index2 alt2"><code class="html plain">var second = totalSecond.innerText; </code></div>
+<div class="line number4 index3 alt1"><code class="html plain">setInterval("redirect()", 1000); </code></div>
+<div class="line number5 index4 alt2"><code class="html plain">function redirect(){ </code></div>
+<div class="line number6 index5 alt1"><code class="html plain">totalSecond.innerText=--second; </code></div>
+<div class="line number7 index6 alt2"><code class="html plain">if(second&lt;</code><code class="html keyword">0</code><code class="html plain">) location.href='hello.html'; </code></div>
+<div class="line number8 index7 alt1"><code class="html plain">} </code></div>
+<div class="line number9 index8 alt2"><code class="html plain">&lt;/script&gt;</code></div>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<p>优点：更人性化<br>缺点：firefox不支持（firefox不支持span、div等的innerText属性）<br><strong>3') 结合了倒数的javascript实现（firefox）</strong></p>
+<div class="cnblogs_Highlighter">
+<div>
+<div class="syntaxhighlighter  javascript" id="highlighter_27238">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="javascript plain">&lt;script language=</code><code class="javascript string">"javascript"</code>&nbsp;<code class="javascript plain">type=</code><code class="javascript string">"text/javascript"</code><code class="javascript plain">&gt; </code></div>
+<div class="line number2 index1 alt1"><code class="javascript keyword">var</code>&nbsp;<code class="javascript plain">second = document.getElementById(</code><code class="javascript string">'totalSecond'</code><code class="javascript plain">).textContent; </code></div>
+<div class="line number3 index2 alt2"><code class="javascript plain">setInterval(</code><code class="javascript string">"redirect()"</code><code class="javascript plain">, 1000); </code></div>
+<div class="line number4 index3 alt1"><code class="javascript keyword">function</code>&nbsp;<code class="javascript plain">redirect() </code></div>
+<div class="line number5 index4 alt2"><code class="javascript plain">{ </code></div>
+<div class="line number6 index5 alt1"><code class="javascript plain">document.getElementById(</code><code class="javascript string">'totalSecond'</code><code class="javascript plain">).textContent = --second; </code></div>
+<div class="line number7 index6 alt2"><code class="javascript keyword">if</code>&nbsp;<code class="javascript plain">(second &lt; 0) location.href = </code><code class="javascript string">'hello.html'</code><code class="javascript plain">; </code></div>
+<div class="line number8 index7 alt1"><code class="javascript plain">} </code></div>
+<div class="line number9 index8 alt2"><code class="javascript plain">&lt;/script&gt;</code></div>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<p><strong>4) 解决Firefox不支持innerText的问题</strong></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<div>
+<div class="syntaxhighlighter  html" id="highlighter_782541">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="html plain">&lt;</code><code class="html keyword">span</code>&nbsp;<code class="html plain">id="totalSecond"&gt;5&lt;/</code><code class="html keyword">span</code><code class="html plain">&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="html plain">&lt;</code><code class="html keyword">script</code>&nbsp;<code class="html plain">language="javascript" type="text/javascript"&gt; </code></div>
+<div class="line number3 index2 alt2"><code class="html plain">if(navigator.appName.indexOf("Explorer") &gt; -1){ </code></div>
+<div class="line number4 index3 alt1"><code class="html plain">document.getElementById('totalSecond').innerText = "my text innerText"; </code></div>
+<div class="line number5 index4 alt2"><code class="html plain">} else{ </code></div>
+<div class="line number6 index5 alt1"><code class="html plain">document.getElementById('totalSecond').textContent = "my text textContent"; </code></div>
+<div class="line number7 index6 alt2"><code class="html plain">} </code></div>
+<div class="line number8 index7 alt1"><code class="html plain">&lt;/</code><code class="html keyword">script</code><code class="html plain">&gt;</code></div>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<p>
+<strong>5) 整合3)和3')</strong></p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter">
+<div>
+<div class="syntaxhighlighter  html" id="highlighter_967240">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+<div class="line number4 index3 alt1">4</div>
+<div class="line number5 index4 alt2">5</div>
+<div class="line number6 index5 alt1">6</div>
+<div class="line number7 index6 alt2">7</div>
+<div class="line number8 index7 alt1">8</div>
+<div class="line number9 index8 alt2">9</div>
+<div class="line number10 index9 alt1">10</div>
+<div class="line number11 index10 alt2">11</div>
+<div class="line number12 index11 alt1">12</div>
+<div class="line number13 index12 alt2">13</div>
+<div class="line number14 index13 alt1">14</div>
+<div class="line number15 index14 alt2">15</div>
+<div class="line number16 index15 alt1">16</div>
+<div class="line number17 index16 alt2">17</div>
+<div class="line number18 index17 alt1">18</div>
+<div class="line number19 index18 alt2">19</div>
+<div class="line number20 index19 alt1">20</div>
+<div class="line number21 index20 alt2">21</div>
+<div class="line number22 index21 alt1">22</div>
+<div class="line number23 index22 alt2">23</div>
+<div class="line number24 index23 alt1">24</div>
+
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="html plain">&lt;</code><code class="html keyword">span</code>&nbsp;<code class="html plain">id="totalSecond"&gt;5&lt;/</code><code class="html keyword">span</code><code class="html plain">&gt;</code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="html plain">&lt;</code><code class="html keyword">script</code>&nbsp;<code class="html plain">language="javascript" type="text/javascript"&gt; </code></div>
+<div class="line number4 index3 alt1"><code class="html plain">var second = document.getElementById('totalSecond').textContent; </code></div>
+<div class="line number5 index4 alt2">&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="html plain">if (navigator.appName.indexOf("Explorer") &gt; -1)&nbsp; { </code></div>
+<div class="line number7 index6 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">second = document.getElementById('totalSecond').innerText; </code></div>
+<div class="line number8 index7 alt1"><code class="html plain">} else { </code></div>
+<div class="line number9 index8 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">second = document.getElementById('totalSecond').textContent; </code></div>
+<div class="line number10 index9 alt1"><code class="html plain">} </code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="html plain">setInterval("redirect()", 1000); </code></div>
+<div class="line number13 index12 alt2"><code class="html plain">function redirect() { </code></div>
+<div class="line number14 index13 alt1"><code class="html plain">if (second &lt; </code><code class="html keyword">0</code><code class="html plain">) { </code></div>
+<div class="line number15 index14 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">location.href = 'hello.html'; </code></div>
+<div class="line number16 index15 alt1"><code class="html plain">} else { </code></div>
+<div class="line number17 index16 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">if (navigator.appName.indexOf("Explorer") &gt; -1) { </code></div>
+<div class="line number18 index17 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">document.getElementById('totalSecond').innerText = second--; </code></div>
+<div class="line number19 index18 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">} else { </code></div>
+<div class="line number20 index19 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">document.getElementById('totalSecond').textContent = second--; </code></div>
+<div class="line number21 index20 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">} </code></div>
+<div class="line number22 index21 alt1"><code class="html plain">} </code></div>
+<div class="line number23 index22 alt2"><code class="html plain">} </code></div>
+<div class="line number24 index23 alt1"><code class="html plain">&lt;/</code><code class="html keyword">script</code><code class="html plain">&gt;</code></div>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/apolloren/category/1083894.html" target="_blank">HTML5</a>,             <a href="https://www.cnblogs.com/apolloren/category/1083893.html" target="_blank">javascript</a>,             <a href="https://www.cnblogs.com/apolloren/category/1083890.html" target="_blank">WEB前端</a></div>
+<div id="EntryTag">
+    标签: 
+            <a href="https://www.cnblogs.com/apolloren/tag/%E8%B7%B3%E8%BD%AC/">跳转</a></div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a id="green_channel_digg" onclick="DiggIt(8012343,cb_blogId,1);green_channel_success(this,'谢谢推荐！');" href="javascript:void(0);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow('a395b1c5-b4fb-4c5d-d204-08d4ef52ecb5');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a title="分享至新浪微博" id="green_channel_weibo" onclick="ShareToTsina()" href="javascript:void(0);"><img alt="" src="https://common.cnblogs.com/images/icon_weibo_24.png"></a>
+    <a title="分享至微信" id="green_channel_wechat" onclick="shareOnWechat()" href="javascript:void(0);"><img alt="" src="https://common.cnblogs.com/images/wechat.png"></a>
+</div>
+<div id="author_profile">
+    <div class="author_profile_info" id="author_profile_info">
+            <a href="https://home.cnblogs.com/u/apolloren/" target="_blank"><img class="author_avatar" alt="" src="https://pic.cnblogs.com/face/sample_face.gif"></a>
+        <div class="author_profile_info" id="author_profile_detail">
+            <a href="https://home.cnblogs.com/u/apolloren/">阿波罗任先生</a><br>
+            <a href="https://home.cnblogs.com/u/apolloren/followees/">关注 - 2</a><br>
+            <a href="https://home.cnblogs.com/u/apolloren/followers/">粉丝 - 16</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a onclick="follow('a395b1c5-b4fb-4c5d-d204-08d4ef52ecb5');return false;" href="javascript:void(0);">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(8012343,'Digg')">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(8012343,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a class="p_n_p_prefix" href="https://www.cnblogs.com/apolloren/p/7991635.html">« </a> 上一篇：    <a title="发布于 2017-12-06 10:56" href="https://www.cnblogs.com/apolloren/p/7991635.html">PHP中的符号 -&gt;、=&gt; 和 :: 分别表示什么意思?</a>
+    <br>
+    <a class="p_n_p_prefix" href="https://www.cnblogs.com/apolloren/p/8039613.html">» </a> 下一篇：    <a title="发布于 2017-12-14 19:51" href="https://www.cnblogs.com/apolloren/p/8039613.html">Zend Studio汉化失败，如何给Zend Studio进行汉化</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-12-09 18:43</span>&nbsp;
+<a href="https://www.cnblogs.com/apolloren/">阿波罗任先生</a>&nbsp;
+阅读(<span id="post_view_count">56232</span>)&nbsp;
+评论(<span id="post_comment_count">1</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8012343" rel="nofollow">编辑</a>&nbsp;
+<a onclick="AddToWz(8012343);return false;" href="javascript:void(0)">收藏</a></div>
+        </div>
