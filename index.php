@@ -743,7 +743,6 @@ function onsubscribe()
 							<ul class="list-unstyled contacts">
 								<li>
 									<i class="radius-3x fa fa-map-marker"></i>
-									上海市松江区洞泾镇城隆路629弄10号楼2层<br>
 									武汉市东西湖慈惠墩网船湾23号
 								</li>
 								<li>
